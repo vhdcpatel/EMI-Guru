@@ -1,35 +1,68 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [amount, setAmount] = useState(0);
+  const [interestRate,SetInterestRate] = useState(6);
+  const [downPayment,setDownPayment] = useState(0);
+  const [tenure,setTenure] = useState(2);
+  const [interest,setInterest] = useState(0);
+
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="main">
+      <span className="main-title title">EMI Calculator</span>
+
+      <span className="title">Total Amount</span>
+      <input
+        type="number"
+        value={amount}
+        name="amount"
+        onChange={(e) => setAmount(e.target.value)}
+        placeholder="Total Amount of EMI"
+      />
+
+      <span className="title">Interest Rate</span>
+      <input
+        type="number"
+        value={interestRate}
+        name="amount"
+        onChange={(e) => SetInterestRate(e.target.value)}
+        placeholder="Total Amount of EMI"
+      />
+
+      <span className="title">Down Payment</span>
+      <input
+        type="number"
+        value={downPayment}
+        name="amount"
+        onChange={(e) => setDownPayment(e.target.value)}
+        placeholder="Total Amount of EMI"
+      />
+      <input
+        type="range"
+        min="0"
+        max="100"
+        onChange={(e) => setDownPayment(e.target.value)}
+      />
+
+      <span className="title">Tenure(Years)</span>
+      <input
+        type="number"
+        value={tenure}
+        name="amount"
+        onChange={(e) => setTenure(e.target.value)}
+        placeholder="Total Amount of EMI"
+      />
+      <input
+        type="range"
+        min="0"
+        max="12"
+        value={tenure}
+        onChange={(e) => setTenure(e.target.value)}
+      />
+    </div>
+  );
 }
 
 export default App
